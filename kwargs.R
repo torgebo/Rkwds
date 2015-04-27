@@ -1,9 +1,7 @@
-#!/usr/bin/env Rscript
-
-##This part initialized keywords from the command line.
-##The eval line does the key word initialization.
-##This is untouched whenever there is no such arguments.
-##Should work on Windows.
+##@kwds should be a vector of "--" prefixed keywords
+##to retain in list.
+##
+##Consider: Dropping kwds altogether and return full list
 ##
 ##Consider: Arguments are ordered according to calling
 ##order. Change?
