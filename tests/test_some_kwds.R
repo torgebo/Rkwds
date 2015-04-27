@@ -2,7 +2,7 @@
 #Called with
 ##./test_some_kwds.R --train TRUE --test FALSE --help nohelp --stats short
 
-source('../kwds.R')
+source('../kwargs.R')
 source('./assert.R') #Testing facility
 assert <- test("'Some keywords contained in arguments'")
 
