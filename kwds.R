@@ -5,16 +5,26 @@
 ##This is untouched whenever there is no such arguments.
 ##Should work on Windows.
 ##
-##TODO: Set this in function. It should then use some
-##of the functionality from 'environments' to set the
-##arguments in the global(?)/top scope
+##Consider: Arguments are ordered according to calling
+##order. Change?
+##
 
-args <- commandArgs(trailingOnly=TRUE)
-kwds <- c("--train")
-every.second <- 2*seq(1:(length(args)/2),
-                      length.out=floor(length(args)/2))-1
-for(i in every.second){
-  if(!(args[i] %in% kwds)) next
-  eval(parse(text=paste0(substring(args[i],3), "<-", args[i+1])))
+getKwargs <- function(kwds){
+  args <- commandArgs(trailingOnly=TRUE)
+  num.args <- floor(length(args)/2)
+  every.second <- 2*seq(from=1, to=num.args,
+                        length.out=num.args)-1
+  kwargs.list = list()
+  for(i in every.second){
+    if(!(args[i] %in% kwds)) next
+    kwargs.list[[substring(args[i],3)]] <- args[i+1]
+  }
+  kwargs.list
 }
+
+
+
+
+
+
 
